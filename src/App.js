@@ -9,7 +9,7 @@ import "./App.css";
 class App extends Component {
   state = {
     name: "",
-    found: false
+    profileFound: false
   };
 
   //on submit handler, which fetches data from API
@@ -27,7 +27,7 @@ class App extends Component {
               this.props.profileInfo(profile);
 
               this.setState({
-                found: true
+                profileFound: true
               });
             });
         }
