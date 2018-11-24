@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { userAction } from "../actions/index";
 class Information extends Component {
   render() {
     console.log(this.props.user);
@@ -22,9 +23,7 @@ class Information extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  user: state
-});
+const mapStateToProps = userAction;
 
 export default connect(
   mapStateToProps,
