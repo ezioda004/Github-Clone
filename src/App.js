@@ -47,7 +47,7 @@ class App extends Component {
           path="/"
           exact
           render={() =>
-            this.state.found ? (
+            this.state.profileFound ? (
               <Redirect from = "/" push to="/profile"  />
             ) : (
               <Search
