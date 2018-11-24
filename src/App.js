@@ -1,27 +1,41 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect, withRouter } from "react-router-dom";
 import Profile from "./Components/Profile/Profile";
+import { connect } from "react-redux";
 class App extends Component {
   state = {
     name: "",
     found: false
-  }
+  };
   onSubmitHandler = e => {
     e.preventDefault();
     fetch(`https://api.github.com/users/${this.state.name}`)
       .then(data => data.json())
-      .then(data => {
-        console.log(data)
-        if (data.message !== "Not Found"){
-          window.location.href = "/profile"
+      .then(profile => {
+        console.log(profile);
+        if (profile.message !== "Not Found") {
+          fetch(`https://api.github.com/users/${this.state.name}/repos`)
+            .then(data => data.json())
+            .then(data => {
+              this.props.repoInfo(data);
+              this.props.profileInfo(profile);
+              console.log(this.props);
+              this.setState({
+                found: true
+              })
+              this.renderRedirect();
+            });
         }
       });
-  }
+  };
   onChangeHandler = e => {
     this.setState({
       name: e.target.value
     });
-  }
+  };
+  renderRedirect = () => {
+    return <Redirect to="/profile" />;
+  };
   render() {
     return (
       <div>
@@ -29,10 +43,14 @@ class App extends Component {
           path="/"
           exact
           render={() => (
+            this.state.found ?   <Redirect to="/profile" /> :
             <div>
-              <form onSubmit = {this.onSubmitHandler}>
-                <input  value = {this.state.name} onChange = {this.onChangeHandler}/>
-                <button type = "submit"> Submit </button>
+              <form onSubmit={this.onSubmitHandler}>
+                <input
+                  value={this.state.name}
+                  onChange={this.onChangeHandler}
+                />
+                <button type="submit"> Submit </button>
               </form>
             </div>
           )}
@@ -43,4 +61,24 @@ class App extends Component {
   }
 }
 
-export default App;
+const repoInformation = repo => ({
+  type: "REPO",
+  repo
+});
+const profileData = profile => ({
+  type: "PROFILE",
+  profile
+})
+const mapDispatchToProps = dispatch => ({
+  repoInfo(repo) {
+    return dispatch(repoInformation(repo));
+  },
+  profileInfo(profile){
+    return dispatch(profileData(profile));
+  }
+});
+
+export default withRouter(connect(
+  null,
+  mapDispatchToProps
+)(App));
