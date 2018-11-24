@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { userAction, searchInfo } from "../../actions/index";
 
-import "./Search.css";
+import "./Filter.css";
 
-class Search extends Component {
+class Filter extends Component {
   state = {
     input: "",
     type: "",
@@ -86,4 +86,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Search);
+)(Filter);

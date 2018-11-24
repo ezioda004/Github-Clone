@@ -53,9 +53,8 @@ class App extends Component {
               <div>
                 <h1>
                   Github Profile Viewer
-
                 </h1>
-                <form onSubmit={this.onSubmitHandler}>
+                <form id = "profile-search" onSubmit={this.onSubmitHandler}>
                   <input
                     value={this.state.name}
                     onChange={this.onChangeHandler}
