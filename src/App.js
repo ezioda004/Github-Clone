@@ -3,6 +3,8 @@ import { Route, Redirect, withRouter } from "react-router-dom";
 import Profile from "./Components/Profile/Profile";
 import { connect } from "react-redux";
 import { repoInformation, profileData } from "./actions/index";
+import "./App.css";
+
 
 class App extends Component {
   state = {
@@ -40,7 +42,7 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
+      <div id="App">
         <Route
           path="/"
           exact
@@ -49,6 +51,10 @@ class App extends Component {
               <Redirect to="/profile" />
             ) : (
               <div>
+                <h1>
+                  Github Profile Viewer
+
+                </h1>
                 <form onSubmit={this.onSubmitHandler}>
                   <input
                     value={this.state.name}

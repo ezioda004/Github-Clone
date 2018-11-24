@@ -20,7 +20,7 @@ class Repo extends Component {
               ? true
               : repo[this.props.user.search.type];
           return (
-            repo.name.toLowerCase().includes(this.props.user.search.input) &&
+            repo.name.toLowerCase().includes(this.props.user.search.input.toLowerCase()) &&
             languageFilter &&
             typeFilter
           );
