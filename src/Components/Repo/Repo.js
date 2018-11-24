@@ -4,13 +4,26 @@ import { userAction } from "../actions/index";
 
 class Repo extends Component {
   render() {
-    console.log(this.props.user.search, "AT REPO");
     const repos = this.props.user.repo
-      .filter(repo =>
-        this.props.user.search
-          ? repo.name.toLowerCase().includes(this.props.user.search.input)
-          : true
-      )
+      .filter(repo => {
+        if (this.props.user.search) {
+          const languageFilter =
+            this.props.user.search.language === "All" ||
+            this.props.user.search.language === ""
+              ? true
+              : this.props.user.search.language === repo.language;
+          const typeFilter =
+            typeof repo[this.props.user.search.type] === "undefined"
+              ? true
+              : repo[this.props.user.search.type];
+          return (
+            repo.name.toLowerCase().includes(this.props.user.search.input) &&
+            languageFilter &&
+            typeFilter
+          );
+        }
+        return true;
+      })
       .map(repo => (
         <div className="repo-container" key={repo.node_id}>
           <a href={repo.html_url} className="repo-name">
