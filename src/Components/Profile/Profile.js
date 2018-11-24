@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Information from "../Information/Information";
 import Repo from "../Repo/Repo";
 import Filter from "../Filter/Filter";
@@ -19,4 +20,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default withRouter(Profile);

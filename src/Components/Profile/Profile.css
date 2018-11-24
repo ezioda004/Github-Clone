@@ -4,4 +4,8 @@
   display: flex;
   margin: 0 150px;
 }
+
+#profile .search-repo {
+  width: 75%;
+}
 /*# sourceMappingURL=Profile.css.map */

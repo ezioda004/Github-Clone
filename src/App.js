@@ -12,7 +12,7 @@ class App extends Component {
     found: false
   };
 
-  //on submit handler, which fetched data from API
+  //on submit handler, which fetches data from API
   onSubmitHandler = e => {
     e.preventDefault();
     fetch(`https://api.github.com/users/${this.state.name}`)
@@ -48,7 +48,7 @@ class App extends Component {
           exact
           render={() =>
             this.state.found ? (
-              <Redirect to="/profile" />
+              <Redirect from = "/" push to="/profile"  />
             ) : (
               <Search
                 onSubmitHandler={this.onSubmitHandler}
