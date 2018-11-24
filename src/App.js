@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import Profile from "./Components/Profile/Profile";
+import Search from "./Components/Search/Search";
 import { connect } from "react-redux";
 import { repoInformation, profileData } from "./actions/index";
 import "./App.css";
-
 
 class App extends Component {
   state = {
@@ -50,18 +50,11 @@ class App extends Component {
             this.state.found ? (
               <Redirect to="/profile" />
             ) : (
-              <div>
-                <h1>
-                  Github Profile Viewer
-                </h1>
-                <form id = "profile-search" onSubmit={this.onSubmitHandler}>
-                  <input
-                    value={this.state.name}
-                    onChange={this.onChangeHandler}
-                  />
-                  <button type="submit"> Submit </button>
-                </form>
-              </div>
+              <Search
+                onSubmitHandler={this.onSubmitHandler}
+                onChangeHandler={this.onChangeHandler}
+                name={this.state.name}
+              />
             )
           }
         />
