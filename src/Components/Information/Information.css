@@ -1,1 +1,23 @@
-/* No CSS *//*# sourceMappingURL=Information.css.map */
+#info img {
+  width: 230px;
+  height: 230px;
+}
+
+#info h1 .username {
+  color: #666;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+#info div {
+  margin: 10px 0;
+}
+
+#info button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 7px 0;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Information.css.map */

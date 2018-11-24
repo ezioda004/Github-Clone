@@ -1,0 +1,23 @@
+#info {
+    img {
+        width: 230px;
+        height: 230px;
+    }
+    h1 {
+        .username {
+            color: #666;
+            font-size: 20px;
+            font-weight: 200;
+        }
+    }
+    div {
+        margin: 10px 0;
+    }
+    button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        padding: 7px 0;
+        cursor: pointer;
+    }
+}

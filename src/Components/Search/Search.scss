@@ -1,0 +1,15 @@
+#filter-repo {
+    margin: 0 50px;
+    display: flex;
+
+    .search-field {
+        width: 50%;
+        input {
+            width: 100%;
+        }
+    }
+    select, label {
+        margin: 0 10px;
+    }
+    
+}

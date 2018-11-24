@@ -1,0 +1,19 @@
+#filter-repo {
+  margin: 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#filter-repo .search-field {
+  width: 50%;
+}
+
+#filter-repo .search-field input {
+  width: 100%;
+}
+
+#filter-repo select, #filter-repo label {
+  margin: 0 10px;
+}
+/*# sourceMappingURL=Search.css.map */

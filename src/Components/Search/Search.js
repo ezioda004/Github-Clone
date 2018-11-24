@@ -2,21 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { userAction } from "../actions/index";
 
+import "./Search.css";
+
 class Search extends Component {
   state = {
-      input: "",
-      type: "",
-      language: ""
+    input: "",
+    type: "",
+    language: ""
   };
 
   // this method sends data to the Repo component, data to be filtered
   onChangeHandler = e => {
     console.log(e.target.id);
-    this.props.searchInfo({...this.state, [e.target.id]: e.target.value});
+    this.props.searchInfo({ ...this.state, [e.target.id]: e.target.value });
     this.setState({
-        [e.target.id]: e.target.value
+      [e.target.id]: e.target.value
     });
-};
+  };
   render() {
     const typeOptions = [
       "All",
@@ -44,16 +46,24 @@ class Search extends Component {
     ));
 
     return (
-      <form onChange={this.onChangeHandler}>
-        <label>
-          <input type="text" id = "input"/>
+      <form id="filter-repo" onChange={this.onChangeHandler}>
+        <label className="search-field">
+          <input type="text" id="input" />
         </label>
-        <select name="" id="type">
-          Type: {typeOptions}
-        </select>
-        <select name="" id="language">
-          Languages: {languageOptions}
-        </select>
+        <label className="select-type">
+          Type:
+          <select name="" id="type">
+            {typeOptions}
+          </select>
+        </label>
+
+        <label className="language-type">
+          Language:
+          <select name="" id="language">
+            {languageOptions}
+          </select>
+        </label>
+
         <button>New</button>
       </form>
     );

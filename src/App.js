@@ -12,7 +12,6 @@ class App extends Component {
     fetch(`https://api.github.com/users/${this.state.name}`)
       .then(data => data.json())
       .then(profile => {
-        console.log(profile);
         if (profile.message !== "Not Found") {
           fetch(`https://api.github.com/users/${this.state.name}/repos`)
             .then(data => data.json())
