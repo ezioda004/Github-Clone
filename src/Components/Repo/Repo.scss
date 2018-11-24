@@ -1,0 +1,10 @@
+.repo-container {
+    margin: 50px 75px;
+    .repo-meta {
+        display: flex;
+        div {
+            display: inline-block;
+            margin: 10px;
+        }
+    }
+}

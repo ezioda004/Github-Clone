@@ -1,0 +1,15 @@
+.repo-container {
+  margin: 50px 75px;
+}
+
+.repo-container .repo-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.repo-container .repo-meta div {
+  display: inline-block;
+  margin: 10px;
+}
+/*# sourceMappingURL=Repo.css.map */

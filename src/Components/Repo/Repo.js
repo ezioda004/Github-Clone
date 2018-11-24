@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { userAction } from "../actions/index";
+import { userAction } from "../../actions/index";
+
+import "./Repo.css";
 
 class Repo extends Component {
   render() {
+    //getting all the repos, also filtering from the queries sent by Search component
     const repos = this.props.user.repo
       .filter(repo => {
         if (this.props.user.search) {
@@ -26,14 +29,16 @@ class Repo extends Component {
       })
       .map(repo => (
         <div className="repo-container" key={repo.node_id}>
-          <a href={repo.html_url} className="repo-name">
-            {repo.name}
-          </a>
+          <h2>
+            <a href={repo.html_url} className="repo-name">
+              {repo.name}
+            </a>
+          </h2>
           <div className="repo-description">{repo.description}</div>
           <div className="repo-meta">
-            <div className="repo-language">{repo.language}</div>
-            <div className="repo-forks">{repo.forks}</div>
-            <div className="repo-updated">{repo.updated_at}</div>
+            <div className="repo-language">Language: {repo.language}</div>
+            <div className="repo-forks">Forks: {repo.forks}</div>
+            <div className="repo-updated">Updated At: {repo.updated_at}</div>
           </div>
         </div>
       ));

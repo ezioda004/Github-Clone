@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { userAction } from "../actions/index";
+import { userAction, searchInfo } from "../../actions/index";
 
 import "./Search.css";
 
@@ -13,13 +13,14 @@ class Search extends Component {
 
   // this method sends data to the Repo component, data to be filtered
   onChangeHandler = e => {
-    console.log(e.target.id);
     this.props.searchInfo({ ...this.state, [e.target.id]: e.target.value });
     this.setState({
       [e.target.id]: e.target.value
     });
   };
   render() {
+
+    //mapping the type options
     const typeOptions = [
       "All",
       "Public",
@@ -33,12 +34,17 @@ class Search extends Component {
         {type}
       </option>
     ));
+
     const languages = ["All"];
+    
+    //getting all the languages from users repo and pushing it to languages array
     this.props.user.repo.forEach(repo =>
       languages.includes(repo.language)
         ? null
         : repo.language && languages.push(repo.language)
     );
+
+    //map through and dynamically generate option
     const languageOptions = languages.map(language => (
       <option value={language} key={language}>
         {language}
@@ -71,10 +77,7 @@ class Search extends Component {
 }
 const mapStateToProps = userAction;
 
-const searchInfo = search => ({
-  type: "SEARCH",
-  search
-});
+
 const mapDispatchToProps = dispatch => ({
   searchInfo(search) {
     return dispatch(searchInfo(search));

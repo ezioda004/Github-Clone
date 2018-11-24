@@ -4,9 +4,9 @@ import Repo from "../Repo/Repo";
 import Search from "../Search/Search";
 import "./Profile.css";
 
+// Profile component, a functional/stateless component can be used
 class Profile extends Component {
   render() {
-    console.log(this.props, "PROPSSS");
     return (
       <div id="profile">
         <Information />

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { userAction } from "../actions/index";
+import { userAction } from "../../actions/index";
 import "./Information.css";
 
+// Info component, a functional/stateless component can be used
 class Information extends Component {
   render() {
-    console.log(this.props.user);
     const { profile } = this.props.user;
-    console.log(profile);
     return (
       <div id="info">
         <img src={profile.avatar_url} alt={profile.avatar_url} />
