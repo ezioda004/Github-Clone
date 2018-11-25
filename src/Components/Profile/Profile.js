@@ -5,6 +5,7 @@ import { userAction } from "../../actions/index";
 import Information from "../Information/Information";
 import Repo from "../Repo/Repo";
 import Filter from "../Filter/Filter";
+import Error from "../Error/Error";
 import "./Profile.css";
 
 // Profile component
@@ -17,18 +18,23 @@ class Profile extends Component {
     return Object.keys(this.props.user).length === 0 ? (
       <Redirect to="/" />
     ) : (
-      <div id="profile">
-        <Information />
-        <div className="search-repo">
-          <Filter />
-          <Repo />
+      <>
+        {this.props.userDoesntExist && <Error />}
+        <div id="profile">
+          <Information />
+          <div className="search-repo">
+            <Filter />
+            <Repo />
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
 
+// passing redux state as props to the component
 const mapStateToProps = userAction;
+
 export default withRouter(
   connect(
     mapStateToProps,

@@ -4,35 +4,45 @@ import { connect } from "react-redux";
 import Header from "./Components/Header/Header";
 import Profile from "./Components/Profile/Profile";
 import Search from "./Components/Search/Search";
-
+import Error from "./Components/Error/Error";
 import { repoInformation, profileData } from "./actions/index";
 import "./App.css";
 
 class App extends Component {
   state = {
     name: "",
-    profileFound: false
+    profileFound: false,
+    userDoesntExist: false
   };
 
   //on submit handler, which fetches data from API
   onSubmitHandler = e => {
     e.preventDefault();
     fetch(`https://api.github.com/users/${this.state.name}`)
-      .then(data => data.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
       .then(profile => {
         if (profile.message !== "Not Found") {
           fetch(`https://api.github.com/users/${this.state.name}/repos`)
             .then(data => data.json())
             .then(data => {
-              // storing the data in the store if the profile exists
+              // storing the data in the redux store if the profile exists
               this.props.repoInfo(data);
               this.props.profileInfo(profile);
 
               this.setState({
-                profileFound: true
+                profileFound: true,
+                userDoesntExist: false
               });
             });
         }
+      })
+      .catch(err => {
+        console.log("Not found");
+        this.setState({ userDoesntExist: true });
       });
   };
 
@@ -43,7 +53,7 @@ class App extends Component {
     });
   };
 
-  // method to revert the state so back can work
+  // method to revert the state so browser's "back" can work
   onProfileMount = bool => {
     this.setState({
       profileFound: bool
@@ -57,6 +67,9 @@ class App extends Component {
           onChangeHandler={this.onChangeHandler}
           name={this.state.name}
         />
+        {/*
+          Redirecting to Profile route if the user is found
+        */}
         <Route
           path="/"
           exact
@@ -65,12 +78,14 @@ class App extends Component {
               <Redirect from="/" push to="/profile" />
             ) : (
               <>
-                <h1 id = "heading">Github Profile Viewer</h1>
+                <h1 id="heading">Github Profile Viewer</h1>
                 <Search
                   onSubmitHandler={this.onSubmitHandler}
                   onChangeHandler={this.onChangeHandler}
                   name={this.state.name}
                 />
+                {/* Showing Error if the user doesnt exist  */}
+                {this.state.userDoesntExist && <Error />}
               </>
             )
           }
@@ -78,7 +93,12 @@ class App extends Component {
         <Route
           path="/profile"
           exact
-          render={() => <Profile onProfileMount={this.onProfileMount} />}
+          render={() => (
+            <Profile
+              userDoesntExist={this.state.userDoesntExist}
+              onProfileMount={this.onProfileMount}
+            />
+          )}
         />
       </div>
     );

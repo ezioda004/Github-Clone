@@ -73,7 +73,9 @@ class Filter extends Component {
               {typeOptions}
             </select>
           </label>
-          <button className="btn">New</button>
+          <button className="btn" onClick={e => e.preventDefault()}>
+            New
+          </button>
         </div>
       </form>
     );
