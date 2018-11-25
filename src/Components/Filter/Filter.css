@@ -184,7 +184,7 @@
     margin-right: 0;
   }
   .dummy-tabs ul li a {
-    margin-right: 3px;
+    margin-right: 0 !important;
     font-size: 11px;
   }
 }

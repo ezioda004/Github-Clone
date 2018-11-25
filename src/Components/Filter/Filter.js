@@ -79,6 +79,7 @@ class Filter extends Component {
         </a>
       </li>
     ));
+    
     return (
       <>
         <div className="dummy-tabs">
