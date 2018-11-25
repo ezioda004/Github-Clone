@@ -7,6 +7,9 @@ import "./Profile.css";
 
 // Profile component, a functional/stateless component can be used
 class Profile extends Component {
+  componentDidMount() {
+    this.props.onProfileMount(false);
+  }
   render() {
     return (
       <div id="profile">

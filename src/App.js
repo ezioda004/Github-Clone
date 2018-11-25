@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Route, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import Header from "./Components/Header/Header";
 import Profile from "./Components/Profile/Profile";
 import Search from "./Components/Search/Search";
-import { connect } from "react-redux";
+
 import { repoInformation, profileData } from "./actions/index";
 import "./App.css";
 
@@ -40,25 +42,38 @@ class App extends Component {
       name: e.target.value
     });
   };
+  onProfileMount = bool => {
+    this.setState({
+      profileFound: bool
+    });
+  };
   render() {
     return (
       <div id="App">
+        <Header />
         <Route
           path="/"
           exact
           render={() =>
             this.state.profileFound ? (
-              <Redirect from = "/" push to="/profile"  />
+              <Redirect from="/" push to="/profile" />
             ) : (
-              <Search
-                onSubmitHandler={this.onSubmitHandler}
-                onChangeHandler={this.onChangeHandler}
-                name={this.state.name}
-              />
+              <>
+                <h1>Github Profile Viewer</h1>
+                <Search
+                  onSubmitHandler={this.onSubmitHandler}
+                  onChangeHandler={this.onChangeHandler}
+                  name={this.state.name}
+                />
+              </>
             )
           }
         />
-        <Route path="/profile" exact component={Profile} />
+        <Route
+          path="/profile"
+          exact
+          render={() => <Profile onProfileMount={this.onProfileMount} />}
+        />
       </div>
     );
   }
