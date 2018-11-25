@@ -42,6 +42,8 @@ class App extends Component {
       name: e.target.value
     });
   };
+
+  // method to revert the state so back can work
   onProfileMount = bool => {
     this.setState({
       profileFound: bool
@@ -50,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <Header />
+        <Header/>
         <Route
           path="/"
           exact

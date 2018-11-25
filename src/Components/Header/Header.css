@@ -1,12 +1,20 @@
 header {
   background-color: #24292e;
+}
+
+header .header {
+  width: 60%;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px;
 }
 
-header .logo svg {
+header .header .logo svg {
   height: 40px;
   width: 40px;
   fill: white;
