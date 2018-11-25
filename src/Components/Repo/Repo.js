@@ -38,7 +38,7 @@ class Repo extends Component {
           <div className="repo-meta">
             <div className="repo-language">Language: {repo.language}</div>
             <div className="repo-forks">Forks: {repo.forks}</div>
-            <div className="repo-updated">Updated At: {repo.updated_at}</div>
+            <div className="repo-updated">Updated At: {new Date(repo.updated_at).toDateString()}</div>
           </div>
         </div>
       ));
