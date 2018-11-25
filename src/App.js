@@ -52,7 +52,11 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <Header/>
+        <Header
+          onSubmitHandler={this.onSubmitHandler}
+          onChangeHandler={this.onChangeHandler}
+          name={this.state.name}
+        />
         <Route
           path="/"
           exact

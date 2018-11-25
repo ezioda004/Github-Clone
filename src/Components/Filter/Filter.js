@@ -54,7 +54,7 @@ class Filter extends Component {
     return (
       <form id="filter-repo" onChange={this.onChangeHandler}>
         <label className="search-field">
-          <input type="text" id="input" placeholder = "Find a repository..."/>
+          <input className = "input-field" type="text" id="input" placeholder = "Find a repository..."/>
         </label>
         <label className="select-type">
           Type:
@@ -70,7 +70,7 @@ class Filter extends Component {
           </select>
         </label>
 
-        <button>New</button>
+        <button className = "btn">New</button>
       </form>
     );
   }
