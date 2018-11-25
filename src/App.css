@@ -1,4 +1,43 @@
 #App h1 {
   text-align: center;
 }
+
+@media (max-width: 1200px) {
+  #profile .search-repo {
+    width: 80%;
+  }
+  .repo-container {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #profile {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    margin: 0 20px;
+  }
+  #profile #info {
+    text-align: center;
+  }
+  #profile .search-repo {
+    margin-top: 20px;
+    width: 100%;
+  }
+  #profile .search-repo #filter-repo {
+    margin: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+  #profile .search-repo #filter-repo .search-field {
+    width: 100%;
+  }
+  #profile .search-repo div .repo-container {
+    margin-left: 0;
+  }
+}
 /*# sourceMappingURL=App.css.map */

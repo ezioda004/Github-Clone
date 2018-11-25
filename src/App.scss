@@ -3,3 +3,41 @@
     text-align: center;
   }
 }
+
+@media (max-width: 1200px) {
+  #profile {
+    .search-repo {
+      width: 80%;
+    }
+  }
+  .repo-container {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #profile {
+    flex-flow: column nowrap;
+    margin: 0 20px;
+    #info {
+      text-align: center;
+    }
+    .search-repo {
+      margin-top: 20px;
+      width: 100%;
+
+      #filter-repo {
+        margin: 0;
+        flex-flow: row wrap;
+        .search-field {
+          width: 100%;
+        }
+      }
+      div {
+        .repo-container {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
