@@ -1,4 +1,4 @@
-#App h1 {
+#App #heading {
   text-align: center;
 }
 
@@ -20,13 +20,18 @@
     margin: 0 20px;
   }
   #profile #info {
+    width: 100%;
     text-align: center;
+  }
+  #profile #info button {
+    width: 100%;
   }
   #profile .search-repo {
     margin-top: 20px;
     width: 100%;
   }
   #profile .search-repo #filter-repo {
+    width: 100%;
     margin: 0;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

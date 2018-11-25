@@ -17,7 +17,7 @@ class Information extends Component {
 
         <br />
         <div className="bio">{profile.bio}</div>
-        <button>Edit Bio</button>
+        <button className = "btn">Edit Bio</button>
         <div className="company">{profile.company}</div>
         <div className="location">{profile.location}</div>
         <div className="blog">{profile.blog}</div>

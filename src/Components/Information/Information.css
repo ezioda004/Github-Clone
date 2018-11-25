@@ -1,3 +1,7 @@
+#info {
+  width: 25%;
+}
+
 #info img {
   width: 230px;
   height: 230px;
@@ -14,10 +18,11 @@
 }
 
 #info button {
-  display: block;
-  width: 100%;
+  width: 230px;
   margin: 5px 0;
   padding: 7px 0;
   cursor: pointer;
+  background: #eff3f6;
+  border: 1px silver solid;
 }
 /*# sourceMappingURL=Information.css.map */

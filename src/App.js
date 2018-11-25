@@ -65,7 +65,7 @@ class App extends Component {
               <Redirect from="/" push to="/profile" />
             ) : (
               <>
-                <h1>Github Profile Viewer</h1>
+                <h1 id = "heading">Github Profile Viewer</h1>
                 <Search
                   onSubmitHandler={this.onSubmitHandler}
                   onChangeHandler={this.onChangeHandler}

@@ -1,5 +1,5 @@
 #App {
-  h1 {
+  #heading {
     text-align: center;
   }
 }
@@ -20,13 +20,18 @@
     flex-flow: column nowrap;
     margin: 0 20px;
     #info {
+      width: 100%;
       text-align: center;
+      button {
+        width: 100%;
+      }
     }
     .search-repo {
       margin-top: 20px;
       width: 100%;
 
       #filter-repo {
+        width: 100%;
         margin: 0;
         flex-flow: row wrap;
         .search-field {
