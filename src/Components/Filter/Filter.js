@@ -18,7 +18,16 @@ class Filter extends Component {
       [e.target.id]: e.target.value
     });
   };
+
+  getProfileInfo(){
+    const {profile} = this.props.user;
+    const profileInfo = {followers: profile.followers, following: profile.following, repositories: profile.public_repos};
+    console.log(this.props.user);
+    return profileInfo;
+  }
+
   render() {
+    const {followers, following, repositories} = this.getProfileInfo();
     //mapping the type options
     const typeOptions = [
       "All",
@@ -51,33 +60,55 @@ class Filter extends Component {
     ));
 
     return (
-      <form id="filter-repo" onChange={this.onChangeHandler}>
-        <label className="search-field">
-          <input
-            className="input-field"
-            type="text"
-            id="input"
-            placeholder="Find a repository..."
-          />
-        </label>
-        <div className="select">
-          <label className="language-type">
-            Language:
-            <select name="" id="language">
-              {languageOptions}
-            </select>
-          </label>
-          <label className="select-type">
-            Type:
-            <select name="" id="type">
-              {typeOptions}
-            </select>
-          </label>
-          <button className="btn" onClick={e => e.preventDefault()}>
-            New
-          </button>
+      <>
+        <div className="dummy-tabs">
+          <ul>
+            <li>
+              <a href= "# ">Overview</a>
+            </li>
+            <li>
+              <a href= "# ">Repositories <code>{repositories}</code></a>
+            </li>
+            <li>
+              <a href= "# ">Stars <code>6</code></a>
+            </li>
+            <li>
+              <a href= "# ">Followers <code>{followers}</code></a>
+            </li>
+            <li>
+              <a href= "# ">Following <code>{following}</code></a>
+            </li>
+          </ul>
         </div>
-      </form>
+        <br />
+        <form id="filter-repo" onChange={this.onChangeHandler}>
+          <label className="search-field">
+            <input
+              className="input-field"
+              type="text"
+              id="input"
+              placeholder="Find a repository..."
+            />
+          </label>
+          <div className="select">
+            <label className="language-type">
+              Language:
+              <select name="" id="language">
+                {languageOptions}
+              </select>
+            </label>
+            <label className="select-type">
+              Type:
+              <select name="" id="type">
+                {typeOptions}
+              </select>
+            </label>
+            <button className="btn" onClick={e => e.preventDefault()}>
+              New
+            </button>
+          </div>
+        </form>
+      </>
     );
   }
 }

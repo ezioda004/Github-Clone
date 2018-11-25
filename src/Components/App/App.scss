@@ -12,6 +12,9 @@ body {
 
 @media (max-width: 1200px) {
   #profile {
+    .dummy-tabs {
+      margin-right: 0 !important;
+    }
     .search-repo {
       width: 80%;
     }
@@ -29,6 +32,13 @@ body {
       width: 100%;
       text-align: center;
       button {
+        width: 100%;
+      }
+    }
+    .dummy-tabs {
+      margin: 0 !important;
+      ul {
+        justify-content: space-between;
         width: 100%;
       }
     }

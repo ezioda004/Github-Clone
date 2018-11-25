@@ -1,3 +1,45 @@
+.dummy-tabs {
+  margin: 0 50px;
+}
+
+.dummy-tabs ul {
+  height: 50px;
+  border-bottom: 1px silver solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 0;
+}
+
+.dummy-tabs ul li {
+  display: inline-block;
+}
+
+.dummy-tabs ul li a {
+  font-weight: 300;
+  padding: 16px 8px;
+  margin-right: 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.dummy-tabs ul li a code {
+  background: rgba(27, 31, 35, 0.08);
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+.dummy-tabs ul li:nth-of-type(2) {
+  border-bottom: 2px red solid;
+}
+
+.dummy-tabs ul li:nth-of-type(2) a {
+  font-weight: 600;
+}
+
 #filter-repo {
   margin: 0 50px;
   display: -webkit-box;
@@ -8,6 +50,7 @@
 
 #filter-repo .search-field {
   width: 40%;
+  margin-left: 0 !important;
 }
 
 #filter-repo .search-field input {
@@ -16,7 +59,7 @@
 
 #filter-repo select,
 #filter-repo label {
-  margin: 0 10px;
+  margin-right: 10px;
 }
 
 #filter-repo .select {
@@ -95,6 +138,16 @@
   }
 }
 
+@media (max-width: 533px) {
+  .dummy-tabs ul {
+    margin-right: 0;
+  }
+  .dummy-tabs ul li a {
+    margin-right: 5px;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 480px) {
   #filter-repo .search-field {
     margin: 0;
@@ -123,6 +176,16 @@
     display: inline-block;
     margin-top: 10px;
     width: 100%;
+  }
+}
+
+@media (max-width: 406px) {
+  .dummy-tabs ul {
+    margin-right: 0;
+  }
+  .dummy-tabs ul li a {
+    margin-right: 3px;
+    font-size: 11px;
   }
 }
 /*# sourceMappingURL=Filter.css.map */

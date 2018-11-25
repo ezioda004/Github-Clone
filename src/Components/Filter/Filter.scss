@@ -1,16 +1,49 @@
+.dummy-tabs {
+  margin: 0 50px;
+  ul {
+    height: 50px;
+    border-bottom: 1px silver solid;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    li {
+      display: inline-block;
+      a {
+        font-weight: 300;
+        padding: 16px 8px;
+        margin-right: 16px;
+        text-decoration: none;
+        color: black;
+        code {
+          background: rgba(27,31,35,.08);
+          opacity: 0.7;
+          border-radius: 50%;
+        }
+      }
+    }
+    li:nth-of-type(2) {
+      border-bottom: 2px red solid;
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 #filter-repo {
   margin: 0 50px;
   display: flex;
   width: 100%;
   .search-field {
     width: 40%;
+    margin-left: 0 !important;
     input {
       width: 100%;
     }
   }
   select,
   label {
-    margin: 0 10px;
+    margin-right: 10px;
   }
   .select {
     display: flex;
@@ -76,19 +109,32 @@
     }
   }
 }
+@media (max-width: 533px){
+  .dummy-tabs {
+    ul {
+      margin-right: 0;
+      li {
+        a {
+          margin-right: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 480px) {
   #filter-repo {
-      .search-field {
-          margin: 0;
-          margin-right: 10px;
-      }
+    .search-field {
+      margin: 0;
+      margin-right: 10px;
+    }
     .select {
-        flex-flow: row wrap;
+      flex-flow: row wrap;
       .language-type,
       .select-type {
-          width: 45%;
-          margin: 0;
+        width: 45%;
+        margin: 0;
         select {
           font-size: 10px;
           option {
@@ -97,9 +143,23 @@
         }
       }
       button {
-          display: inline-block;
-          margin-top: 10px;
-          width: 100%;
+        display: inline-block;
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 406px){
+  .dummy-tabs {
+    ul {
+      margin-right: 0;
+      li {
+        a {
+          margin-right: 3px;
+          font-size: 11px;
+        }
       }
     }
   }

@@ -11,6 +11,9 @@ body {
 }
 
 @media (max-width: 1200px) {
+  #profile .dummy-tabs {
+    margin-right: 0 !important;
+  }
   #profile .search-repo {
     width: 80%;
   }
@@ -32,6 +35,15 @@ body {
     text-align: center;
   }
   #profile #info button {
+    width: 100%;
+  }
+  #profile .dummy-tabs {
+    margin: 0 !important;
+  }
+  #profile .dummy-tabs ul {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 100%;
   }
   #profile .search-repo {
