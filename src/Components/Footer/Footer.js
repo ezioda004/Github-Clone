@@ -1,5 +1,6 @@
 import React from "react";
 
+// Footer component
 const Footer = () => {
   const style = {
     background: "#24292e",

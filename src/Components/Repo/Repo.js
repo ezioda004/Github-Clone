@@ -20,7 +20,9 @@ class Repo extends Component {
               ? true
               : repo[this.props.user.search.type];
           return (
-            repo.name.toLowerCase().includes(this.props.user.search.input.toLowerCase()) &&
+            repo.name
+              .toLowerCase()
+              .includes(this.props.user.search.input.toLowerCase()) &&
             languageFilter &&
             typeFilter
           );
@@ -38,7 +40,9 @@ class Repo extends Component {
           <div className="repo-meta">
             <div className="repo-language">Language: {repo.language}</div>
             <div className="repo-forks">Forks: {repo.forks}</div>
-            <div className="repo-updated">Updated At: {new Date(repo.updated_at).toDateString()}</div>
+            <div className="repo-updated">
+              Updated At: {new Date(repo.updated_at).toDateString()}
+            </div>
           </div>
         </div>
       ));

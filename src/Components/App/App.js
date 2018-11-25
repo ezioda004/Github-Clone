@@ -42,6 +42,7 @@ class App extends Component {
         }
       })
       .catch(err => {
+        //If proflle not found then updating state and render Error component
         console.log("Not found");
         this.setState({ userDoesntExist: true });
       });

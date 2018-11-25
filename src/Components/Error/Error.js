@@ -1,5 +1,6 @@
 import React from "react";
 
+// Error component, renders error if the profile doesnt exist
 const Error = () => {
   const style = {
     textAlign: "center",

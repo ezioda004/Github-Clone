@@ -9,7 +9,7 @@ class Header extends Component {
       <header>
         <div className="header">
           <div className="logo">
-            <Link to = "/">
+            <Link to="/">
               <svg viewBox="0 0 128 128">
                 <path
                   fillRule="evenodd"
@@ -20,7 +20,7 @@ class Header extends Component {
               </svg>
             </Link>
           </div>
-
+          {/*Renders the Search component if the location is /profile */}
           {this.props.location.pathname.includes("/profile") && (
             <Search
               onSubmitHandler={this.props.onSubmitHandler}

@@ -7,13 +7,15 @@ const Search = props => {
       <form id="profile-search" onSubmit={e => props.onSubmitHandler(e)}>
         <label>
           <input
-          className = "input-field"
+            className="input-field"
             value={props.name}
             onChange={e => props.onChangeHandler(e)}
             placeholder="Search profile.."
           />
         </label>
-        <button className = "btn" type="submit"> Search </button>
+        <button className="btn" type="submit">
+          Search
+        </button>
       </form>
     </div>
   );
