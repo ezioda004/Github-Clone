@@ -19,7 +19,6 @@ class Filter extends Component {
     });
   };
   render() {
-
     //mapping the type options
     const typeOptions = [
       "All",
@@ -36,7 +35,7 @@ class Filter extends Component {
     ));
 
     const languages = ["All"];
-    
+
     //getting all the languages from users repo and pushing it to languages array
     this.props.user.repo.forEach(repo =>
       languages.includes(repo.language)
@@ -54,29 +53,33 @@ class Filter extends Component {
     return (
       <form id="filter-repo" onChange={this.onChangeHandler}>
         <label className="search-field">
-          <input className = "input-field" type="text" id="input" placeholder = "Find a repository..."/>
+          <input
+            className="input-field"
+            type="text"
+            id="input"
+            placeholder="Find a repository..."
+          />
         </label>
-        <label className="select-type">
-          Type:
-          <select name="" id="type">
-            {typeOptions}
-          </select>
-        </label>
-
-        <label className="language-type">
-          Language:
-          <select name="" id="language">
-            {languageOptions}
-          </select>
-        </label>
-
-        <button className = "btn">New</button>
+        <div className="select">
+          <label className="language-type">
+            Language:
+            <select name="" id="language">
+              {languageOptions}
+            </select>
+          </label>
+          <label className="select-type">
+            Type:
+            <select name="" id="type">
+              {typeOptions}
+            </select>
+          </label>
+          <button className="btn">New</button>
+        </div>
       </form>
     );
   }
 }
 const mapStateToProps = userAction;
-
 
 const mapDispatchToProps = dispatch => ({
   searchInfo(search) {

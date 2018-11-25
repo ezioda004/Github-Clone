@@ -16,3 +16,19 @@ header {
     }
   }
 }
+
+
+@media (max-width: 620px){
+    header {
+        .header {
+            width: 90%;
+            div {
+                #profile-search {
+                    input {
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -20,4 +20,13 @@ header .header .logo svg {
   width: 40px;
   fill: white;
 }
+
+@media (max-width: 620px) {
+  header .header {
+    width: 90%;
+  }
+  header .header div #profile-search input {
+    width: 150px;
+  }
+}
 /*# sourceMappingURL=Header.css.map */
