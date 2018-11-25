@@ -5,6 +5,7 @@ import Header from "./Components/Header/Header";
 import Profile from "./Components/Profile/Profile";
 import Search from "./Components/Search/Search";
 import Error from "./Components/Error/Error";
+import Footer from "./Components/Footer/Footer";
 import { repoInformation, profileData } from "./actions/index";
 import "./App.css";
 
@@ -61,46 +62,49 @@ class App extends Component {
   };
   render() {
     return (
-      <div id="App">
-        <Header
-          onSubmitHandler={this.onSubmitHandler}
-          onChangeHandler={this.onChangeHandler}
-          name={this.state.name}
-        />
-        {/*
+      <>
+        <div id="App">
+          <Header
+            onSubmitHandler={this.onSubmitHandler}
+            onChangeHandler={this.onChangeHandler}
+            name={this.state.name}
+          />
+          {/*
           Redirecting to Profile route if the user is found
         */}
-        <Route
-          path="/"
-          exact
-          render={() =>
-            this.state.profileFound ? (
-              <Redirect from="/" push to="/profile" />
-            ) : (
-              <>
-                <h1 id="heading">Github Profile Viewer</h1>
-                <Search
-                  onSubmitHandler={this.onSubmitHandler}
-                  onChangeHandler={this.onChangeHandler}
-                  name={this.state.name}
-                />
-                {/* Showing Error if the user doesnt exist  */}
-                {this.state.userDoesntExist && <Error />}
-              </>
-            )
-          }
-        />
-        <Route
-          path="/profile"
-          exact
-          render={() => (
-            <Profile
-              userDoesntExist={this.state.userDoesntExist}
-              onProfileMount={this.onProfileMount}
-            />
-          )}
-        />
-      </div>
+          <Route
+            path="/"
+            exact
+            render={() =>
+              this.state.profileFound ? (
+                <Redirect from="/" push to="/profile" />
+              ) : (
+                <>
+                  <h1 id="heading">Github Profile Viewer</h1>
+                  <Search
+                    onSubmitHandler={this.onSubmitHandler}
+                    onChangeHandler={this.onChangeHandler}
+                    name={this.state.name}
+                  />
+                  {/* Showing Error if the user doesnt exist  */}
+                  {this.state.userDoesntExist && <Error />}
+                </>
+              )
+            }
+          />
+          <Route
+            path="/profile"
+            exact
+            render={() => (
+              <Profile
+                userDoesntExist={this.state.userDoesntExist}
+                onProfileMount={this.onProfileMount}
+              />
+            )}
+          />
+        </div>
+        <Footer />
+      </>
     );
   }
 }

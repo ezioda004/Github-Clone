@@ -1,3 +1,9 @@
+body {
+  min-height: 100vh;
+}
+#root, #App {
+  height: 100vh;
+}
 #App {
   #heading {
     text-align: center;
