@@ -9,7 +9,6 @@ const Footer = () => {
     width: "100%",
     textAlign: "center",
     height: "30px",
-    
   };
   const anchorStyle = {
     color: "white",

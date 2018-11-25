@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import Header from "./Components/Header/Header";
-import Profile from "./Components/Profile/Profile";
-import Search from "./Components/Search/Search";
-import Error from "./Components/Error/Error";
-import Footer from "./Components/Footer/Footer";
-import { repoInformation, profileData } from "./actions/index";
+import Header from "../Header/Header";
+import Profile from "../Profile/Profile";
+import Search from "../Search/Search";
+import Error from "../Error/Error";
+import Footer from "../Footer/Footer";
+import { repoInformation, profileData } from "../../actions/index";
 import "./App.css";
 
 class App extends Component {
