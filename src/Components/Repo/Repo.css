@@ -1,5 +1,7 @@
 .repo-container {
-  margin: 50px 75px;
+  margin: 50px 50px;
+  padding-top: 20px;
+  border-top: 1px #00000033 solid;
 }
 
 .repo-container .repo-meta {
@@ -10,6 +12,11 @@
 
 .repo-container .repo-meta div {
   display: inline-block;
-  margin: 10px;
+  margin: 13px;
+  margin-left: 0;
+}
+
+.repo-container h2 a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=Repo.css.map */
