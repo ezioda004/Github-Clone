@@ -7,8 +7,8 @@ const Search = props => {
     <div>
       <h1>Github Profile Viewer</h1>
       <form id="profile-search" onSubmit={e => props.onSubmitHandler(e)}>
-        <input value={props.name} onChange={e => props.onChangeHandler(e)} />
-        <button type="submit"> Submit </button>
+        <input value={props.name} onChange={e => props.onChangeHandler(e)} placeholder = "Search profile.."/>
+        <button type="submit"> Search </button>
       </form>
     </div>
   );
