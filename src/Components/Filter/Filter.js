@@ -19,15 +19,21 @@ class Filter extends Component {
     });
   };
 
-  getProfileInfo(){
-    const {profile} = this.props.user;
-    const profileInfo = {followers: profile.followers, following: profile.following, repositories: profile.public_repos};
-    console.log(this.props.user);
+  // get meta data about profile to display in the dummy tabs
+  getProfileInfo() {
+    const { profile } = this.props.user;
+    const profileInfo = {
+      followers: profile.followers,
+      following: profile.following,
+      repositories: profile.public_repos,
+      stars: 7,
+      overview: ""
+    };
     return profileInfo;
   }
 
   render() {
-    const {followers, following, repositories} = this.getProfileInfo();
+    const profile = this.getProfileInfo();
     //mapping the type options
     const typeOptions = [
       "All",
@@ -59,26 +65,24 @@ class Filter extends Component {
       </option>
     ));
 
+    // generating li's with a
+    const dummyTabsList = [
+      "Overview",
+      "Repositories",
+      "Stars",
+      "Followers",
+      "Following"
+    ].map(list => (
+      <li key={list}>
+        <a href="# ">
+          {list} <code>{profile[list.toLowerCase()]}</code>
+        </a>
+      </li>
+    ));
     return (
       <>
         <div className="dummy-tabs">
-          <ul>
-            <li>
-              <a href= "# ">Overview</a>
-            </li>
-            <li>
-              <a href= "# ">Repositories <code>{repositories}</code></a>
-            </li>
-            <li>
-              <a href= "# ">Stars <code>6</code></a>
-            </li>
-            <li>
-              <a href= "# ">Followers <code>{followers}</code></a>
-            </li>
-            <li>
-              <a href= "# ">Following <code>{following}</code></a>
-            </li>
-          </ul>
+          <ul>{dummyTabsList}</ul>
         </div>
         <br />
         <form id="filter-repo" onChange={this.onChangeHandler}>
