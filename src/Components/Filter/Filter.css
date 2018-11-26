@@ -179,6 +179,9 @@
   #filter-repo .select .select-type select option {
     font-size: 10px;
   }
+  #filter-repo .select .select-type select {
+    width: 75%;
+  }
   #filter-repo .select button {
     display: inline-block;
     margin-top: 10px;

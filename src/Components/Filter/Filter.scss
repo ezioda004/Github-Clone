@@ -148,6 +148,11 @@
           }
         }
       }
+      .select-type {
+        select {
+          width: 75%;
+        }
+      }
       button {
         display: inline-block;
         margin-top: 10px;
