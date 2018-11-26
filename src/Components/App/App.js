@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, withRouter } from "react-router-dom";
+import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Header from "../Header/Header";
 import Profile from "../Profile/Profile";
@@ -13,7 +13,8 @@ class App extends Component {
   state = {
     name: "",
     profileFound: false,
-    userDoesntExist: false
+    userDoesntExist: false,
+    username: ""
   };
 
   //on submit handler, which fetches data from API
@@ -36,7 +37,8 @@ class App extends Component {
 
               this.setState({
                 profileFound: true,
-                userDoesntExist: false
+                userDoesntExist: false,
+                username: profile.login
               });
             });
         }
@@ -70,39 +72,51 @@ class App extends Component {
             onChangeHandler={this.onChangeHandler}
             name={this.state.name}
           />
+
           {/*
-          Redirecting to Profile route if the user is found
+          Redirecting to Profile route if the user is found and making sure the path isnt homepage and not redirecting to same path
         */}
-          <Route
-            path="/"
-            exact
-            render={() =>
-              this.state.profileFound ? (
-                <Redirect from="/" push to="/profile" />
-              ) : (
-                <>
-                  <h1 id="heading">Github Profile Viewer</h1>
-                  <Search
-                    onSubmitHandler={this.onSubmitHandler}
-                    onChangeHandler={this.onChangeHandler}
-                    name={this.state.name}
-                  />
-                  {/* Showing Error if the user doesnt exist  */}
-                  {this.state.userDoesntExist && <Error />}
-                </>
-              )
-            }
-          />
-          <Route
-            path="/profile"
-            exact
-            render={() => (
-              <Profile
-                userDoesntExist={this.state.userDoesntExist}
-                onProfileMount={this.onProfileMount}
-              />
-            )}
-          />
+          {this.props.location.pathname !== "/" &&
+          this.state.profileFound &&
+          this.props.location.pathname.split("/").slice(-1)[0] !==
+            this.state.username ? (
+            <Redirect push to={`/profile/${this.state.username}`} />
+          ) : null}
+          <Switch>
+            {/* Redirecting from homepage to prifle route */}
+            <Route
+              path="/"
+              exact
+              render={() =>
+                this.state.profileFound ? (
+                  <Redirect push to={`/profile/${this.state.username}`} />
+                ) : (
+                  <>
+                    <h1 id="heading">Github Profile Viewer</h1>
+                    <Search
+                      onSubmitHandler={this.onSubmitHandler}
+                      onChangeHandler={this.onChangeHandler}
+                      name={this.state.name}
+                    />
+                    {/* Showing Error if the user doesnt exist  */}
+                    {this.state.userDoesntExist && <Error />}
+                  </>
+                )
+              }
+            />
+
+            {/* The profile/username route */}
+            <Route
+              path={`/profile/${this.state.username}`}
+              exact
+              render={() => (
+                <Profile
+                  userDoesntExist={this.state.userDoesntExist}
+                  onProfileMount={this.onProfileMount}
+                />
+              )}
+            />
+          </Switch>
         </div>
         <Footer />
       </>
